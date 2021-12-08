@@ -1,0 +1,135 @@
+body{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(57,65,144,1) 48%, rgba(0,0,0,1) 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+/* Bagian Art */
+.big-title h1{
+    margin-top: 100px;
+    color: #ffba08;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px ;
+}
+.big-title hr{
+    width: 50%;
+    margin:auto;
+    background-color: violet;
+}
+.single-art{
+    position: relative;
+    transition: .3s;
+    box-shadow: 10px 20px 20px rgba(0,0,0,0.8);
+    margin-top: 80px;
+    background-image: 
+    linear-gradient( rgba(0,0,0,0.6),rgba(0,0,0,0.2)),
+    url("img/back1.jpg");
+    background-size: cover;
+}
+.single-art img{
+    width: 100%;
+    height: 520px;
+    margin: 10px 0 10px;
+}
+.single-art .text-content, .single-art::after{
+    position: absolute;
+    left: 20px;
+    right: 20px;
+}
+.single-art::after{
+    content: "";
+    display: block;
+    background: #14213d;
+    top: 7px;
+    bottom: 7px;
+    left: 0px;
+    right: 0px;
+    opacity: 0;
+    transform: rotate3d(-1,1,0,100deg);
+    transition: .4s;
+}
+.single-art:hover::after{
+    opacity: .9;
+    transform: rotate3d(0,0,0,0deg);
+}
+.text-content {
+    top: 45%;
+    z-index: 1;
+    opacity: 0;
+    transform: translate(10%,-30%);
+    transition: .3s;
+    text-align: center;
+    color: white;
+}
+.text-content h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+.text-content h5{
+    color: white;
+    font-weight: 200;
+}
+.single-art:hover .text-content{
+    opacity: 1;
+    transform: translate(0,-50%);
+    transition-delay: .1s;
+}
+
+/* bagian parallax */
+.parallax{
+    margin-top: 150px;
+    background-image:
+    linear-gradient( rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("https://source.unsplash.com/random/1980x1087");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 400px;
+    background-position: 0 -60px;
+    text-align: center;
+}
+.parallax h2{
+    font-size: 30px;
+    margin-top: 80px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.parallax a{
+    margin-top: 80px;
+    text-align: center;
+}
+.parallax span{
+    font-weight: 800;
+    color: #ffba08;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+}
+.tombol-jumbo{
+    text-transform: uppercase;
+    border-radius: 40px;
+    color: black;
+    font-weight: bold;
+    padding: 15px 35px;
+    display: inline-block;
+    background: #ffba08;
+    width: 70%;
+}
+
+@media (min-width:992px){
+    .parallax h2{
+        margin-top: 120px;
+        font-size: 55px;
+        margin-left: 90px;
+    }
+    .parallax a{
+        margin-top: 160px;
+        margin-left: 90px;
+    }
+    .tombol-jumbo{
+        width: 30%;
+    }
+}

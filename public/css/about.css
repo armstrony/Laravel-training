@@ -1,0 +1,154 @@
+/* jumbotron */
+
+
+.jumbotron{
+    margin-top: -30px;
+    background-image: 
+    linear-gradient( rgba(0,0,0,0.3),rgba(0,0,0,1.2)), 
+    url("../img/home2.jpg");
+    background-size: cover;
+    height: 120vh;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+}
+.jumbotron .display-4{
+    color: #edf2f4;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 30px;
+    font-size: 55px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    margin-bottom: 40px;
+}
+
+.jumbotron .display-4 span{
+    font-weight: 500;
+    color: #ffba08;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+.tombol-jumbo{
+    text-transform: uppercase;
+    border-radius: 40px;
+    color: black;
+    font-weight: bold;
+    padding: 15px 35px;
+    display: inline-block;
+    background: #ffba08;
+    width: 70%;
+}
+/* box kecil dibawah jumbotron */
+.box-wrapper{
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 13px;
+    margin-top: -120px;
+    background-color: white;
+    padding: 30px;
+}
+.box-wrapper h4{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 2px;
+}
+.box-wrapper p{
+    font-size: 14px;
+    color: rgba(50, 50, 50, 0.5);
+    font-weight: 400;
+
+}
+.images img{
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+/* Contoh Art */
+
+.ex-art{
+    margin-top: 110px;
+    text-align: center;
+}
+.ex-art h3{
+    font-size: 45px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 20px;
+}
+.ex-art p{
+    font-size: 19px;
+    color: rgba(22, 21, 21, 0.727);
+    font-weight: 250;
+    margin: 35px 0;
+
+}
+
+.ex-art h3 span{
+    font-weight: 500;
+    color: #ffba08 ;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.ex-art img{
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+/* bagian parallax */
+.parallax{
+    margin-top: 200px;
+    background-image:
+    linear-gradient( rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("https://source.unsplash.com/random/1982x1081");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 400px;
+    background-position: 0 -60px;
+    text-align: center;
+}
+.parallax h2{
+    font-size: 30px;
+    margin-top: 80px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.parallax a{
+    margin-top: 80px;
+    text-align: center;
+}
+.parallax span{
+    font-weight: 800;
+    color: #ffba08;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+}
+
+@media (min-width:992px){
+    .jumbotron .display-4{
+        margin-top: 250px;
+        font-size: 67px;
+    }
+    .tombol-jumbo{
+        width: 30%;
+    }
+    .ex-art img{
+        height: 340px;
+    }
+    .ex-art a{
+        margin-left: 150px;
+    }
+    .ex-art{
+        text-align: left;
+    }
+    .parallax h2{
+        margin-top: 120px;
+        font-size: 55px;
+        margin-left: 90px;
+    }
+    .parallax a{
+        margin-top: 160px;
+        margin-left: 90px;
+    }
+}

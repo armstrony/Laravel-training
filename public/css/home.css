@@ -1,0 +1,79 @@
+#homeCarousel{
+    margin-top: -1.5rem;
+    margin-bottom: -2rem;
+}
+.carousel-item{
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.carousel-item img{
+    background-size: cover;
+    height: 100vh;
+}
+.carousel-caption{
+    bottom: 250px;
+}
+.carousel-caption h5{
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.carousel-caption h5 span{
+    color: #ffba08;
+}
+.carousel-caption p{
+    width: 70%;
+    margin:auto;
+    font-size: 16px;
+    margin-top: 1rem;
+    line-height: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #edf2f4;
+    font-weight: bold;
+}
+.carousel-item::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: black;
+    opacity: 0.7;
+}
+
+.carousel-caption a{
+    margin-top: 15px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    color: black;
+    font-weight: bold;
+    padding: 15px 35px;
+    display: inline-block;
+    background: #ffba08;
+    width: 70%;
+}
+
+@media (min-width:993px){
+    .carousel-item{
+        height: 100vh;
+    }
+    .carousel-caption{
+        bottom: 250px;
+    }
+    .carousel-caption h5{
+        font-size: 50px;
+    }
+    .carousel-caption p{
+        font-size: 20px;
+    }
+    .carousel-caption a{
+        width: 30%;
+        margin-top: 15px;
+    }
+}
