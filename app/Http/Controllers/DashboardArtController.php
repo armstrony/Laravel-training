@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Art;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardArtController extends Controller
 {
@@ -69,9 +70,13 @@ class DashboardArtController extends Controller
      * @param  \App\Models\Art  $art
      * @return \Illuminate\Http\Response
      */
-    public function edit(Art $art)
+    public function edit($id)
     {
-        //
+        //return view update
+        $art = Art::find($id);
+        return view('dashboard.gallery.edit', [
+            'art' => $art
+        ]);
     }
 
     /**
@@ -81,9 +86,24 @@ class DashboardArtController extends Controller
      * @param  \App\Models\Art  $art
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Art $art)
+    public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            // update an image from upload form to local storage
+            $image = $validateData['image'];
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('/img'), $imageName);
+            $validateData['image'] = $imageName;
+        }
+        Art::find($id)->update($validateData);
+        return redirect('/dashboard/gallery')->with('success', 'Art has been updated');
     }
 
     /**
@@ -92,9 +112,10 @@ class DashboardArtController extends Controller
      * @param  \App\Models\Art  $art
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Art $art)
+    public function destroy($artid)
     {
         // destory data from database from form
+        $art = Art::find($artid);
         $art->delete();
         return redirect('/dashboard/gallery')->with('success', 'Art has been deleted');
 

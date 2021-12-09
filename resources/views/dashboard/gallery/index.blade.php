@@ -31,9 +31,9 @@
                 <td>
                     {{-- create edit and delete button --}}
                     <a class="btn btn-primary p-1" href="/dashboard/gallery/{{ $art->id }}/edit">Edit</a>
-                    <form action="{{ route('gallery.destroy', $art->id) }}" method="POST" class="d-inline">
-                        @csrf
+                    <form action="/dashboard/gallery/{{ $art->id }}" method="post" class="d-inline">
                         @method('DELETE')
+                        @csrf
                         <button class="btn btn-danger p-1" type="submit">Delete</button>
                     </form>
                 </td>
