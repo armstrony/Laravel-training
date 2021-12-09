@@ -15,7 +15,9 @@ class DashboardArtController extends Controller
      */
     public function index()
     {
-        return view('dashboard.gallery');
+        return view('dashboard.gallery.index', [
+            'arts' => Art::all()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class DashboardArtController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.gallery.create');
     }
 
     /**
@@ -36,7 +38,18 @@ class DashboardArtController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        // save an image from upload form to local storage
+        $image = $validateData['image'];
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('/img'), $imageName);
+        $validateData['image'] = $imageName;
+        Art::create($validateData);
+
+        return redirect('/dashboard/gallery')->with('success', 'Art has been added');
     }
 
     /**
@@ -81,6 +94,9 @@ class DashboardArtController extends Controller
      */
     public function destroy(Art $art)
     {
-        //
+        // destory data from database from form
+        $art->delete();
+        return redirect('/dashboard/gallery')->with('success', 'Art has been deleted');
+
     }
 }
